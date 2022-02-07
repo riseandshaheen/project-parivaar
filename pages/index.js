@@ -15,9 +15,7 @@ export default function Home(){
         console.log("We have the ethereum object", ethereum);
       }
 
-      /*
-      * Check if we're authorized to access the user's wallet
-      */
+      /* Check if we're authorized to access the user's wallet */
       const accounts = await ethereum.request({ method: "eth_accounts" });
 
       if (accounts.length !== 0) {
@@ -39,7 +37,7 @@ export default function Home(){
         alert("Get MetaMask!");
         return;
       }
-			//STARRED//
+			/* Ask for authorization */
       const accounts = await ethereum.request({ method: "eth_requestAccounts" });
 
       console.log("Connected", accounts[0]);
@@ -51,6 +49,7 @@ export default function Home(){
     }
   };
 
+/* Check if wallet is connected everytime when page loads */
   useEffect(() => {
     checkIfWalletIsConnected();
   }, [])
