@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Hello! 👋
+
+If you're looking to learn front-end development for Blockchain, you're at the right place! This project will help you create your first UI components of decentralized apps.
+
+We'll be using **NextJS** framework and good old **HTML** and **CSS**.
 
 ## Getting Started
 
