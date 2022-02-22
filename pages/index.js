@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
+import DeployedContracts from "./deployedContracts.js";
 
 export default function Home(){
 
@@ -13,6 +14,20 @@ export default function Home(){
    4: "RINKEBY",
    5: "GOERLI"
   };
+
+  const fetchbalance = async () => {
+  const { ethereum } = window;
+  const accountss = await ethereum.request({ method: "eth_accounts" });
+  const useraddr = accountss[0];
+
+  
+  const url = `https://api-rinkeby.etherscan.io/api?module=account&action=balance&address=${useraddr}&tag=latest&apikey=${process.env['API_KEY']}`
+
+  const response = await fetch(url);
+  const data = await response.json();
+  console.log("Data : ", data );
+  return (data);
+  }
 
   const checkIfWalletIsConnected = async () => {
     try {
@@ -118,7 +133,9 @@ export default function Home(){
               <p className={styles.bal}>{currentNetwork}</p>
             </div>
           </div>
-        </div>    
+        {/* Smart contracts deployed */}
+        <div>{fetchbalance()}</div>
+        </div>
       )}
 
 
